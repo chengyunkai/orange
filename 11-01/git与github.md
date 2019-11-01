@@ -98,4 +98,20 @@ git reset --hard 版本ID
 2.gut clone 项目的地址
 3.git add . git commit -m ""
 4.git push origin master
- 
+
+
+# node
+ npm 跟着node 安装一起安装下来的模块
+
+ npm 目前是世界上最大的资源管理平台
+
+ 创建项目：
+   npm init -y 会生成一个package.json的文件。这个文件里面放的是所有的项目依赖文件
+
+ 如何下载资源 ？
+    npm  install 资源名 
+    -g 全局安装
+    -s 项目依赖
+
+
+    下载下来的时候会生成一个 node_modules的文件，文件夹中是你想下载下来的东西
