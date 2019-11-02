@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function fn(){
+        console.log(this);//doncument
+    }
+    document.onclick = function(){
+        fn();
+    };
+    document.onclick =(function(){
+ console.log(this);
+ return fn;
+        })();
+    
+    </script>
+    
+</body>
+</html>

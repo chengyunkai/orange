@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>Document</title>
+</head>
+<body>
+<script>
+    +function(){
+        console.log(a);
+
+        var a =5;
+        function a(){}
+        console.log(a)//5
+        function b(){}
+        b = 6 ;
+        console.log(b)//function b(){}
+        var c=d=b
+    }()
+
+    console.log(d)// window
+    console.log(c) //   报错
+
+
+    //this 
+    /*
+    事件触发是谁，this就是谁
+    window 全局打印this fn() this是window
+    对象下的this 就是前面的主
+    */
+    var obj ={
+        val:2,
+        dbl:function(){//001
+            var val = 45;
+            console.log(this);//obj
+            this.val *=2;
+            console.log(val);//45
+            console.log(this.val);//4
+        }
+        
+    }
+    // var ff =obj.dbl();//4
+    // var fn = obj.dbl;//NaN
+
+    // console.log(this);
+    // function fn(){
+    //     console.log(this);
+    // }
+    // cnsole.log(window)
+    // window.fn();
+
+    let obj2={
+        sty:{
+            fn:function(){
+                console.log(this);
+            }
+        }
+    }
+
+    obj2.style.fn();//this是obj2下的style对象
+    //console.log()
+
+    let f=obj2.style.fn;//001
+    f();
+</script>
+</body>
+</html>
