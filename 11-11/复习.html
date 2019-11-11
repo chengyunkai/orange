@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       /*
+     = 号是赋址
+
+    把右边的数据赋值到左边
+
+  
+
+
+    简单数据类型就是赋值
+
+    引用类型赋址操作
+
+
+    function a(){
+
+    }
+    var a = 5 ;
+    function a(){
+
+    }
+    a();
+
+    
+       */
+
+    let ary =[1,2,3];
+    // //   ary2想要ary1中的数据
+    // //  因为引用类型的赋值是赋址，既不想进行赋址操作又想拿到另一个引用类型的数据所以要拷贝
+    // let ary2 = [];
+    // for(let i=0 ; i<ary.length;i++) {
+    //    ary2[i] = ary[i];
+    // }  
+
+
+    function deepClone(ary){
+        let aty2 = [];
+        for(let i = 0 ; i<ary.length;i++){
+            if(ary[i] !== null && typeof ary[i] ==='object'){
+                ary2[i]=deepClone(ary[i])
+            }else{
+                ary2[i] = ary[i];//简单类型就是赋值
+                /*
+                   因为ary[i] 有可能是是引用类型，但是又不想让这个引用类型赋值
+                   如果它是引用类型，就继续循环里面的数据
+                */
+            }
+        }
+        return ary2;
+    }
+
+    function deepClone(o){
+        let obj = o.push?[]:{};
+        for (let attr in o ){
+            if(o[attr]!== null && typeof o[attr]==='object'){
+                obj[attr] = deepClone(o[attr])
+            }else{
+                obj[attr]=o[attr];
+            }
+        }
+        return obj ;
+    }   
+
+    let ary2 =deepClone(ary);
+    ary2.push(3);
+    console.log(ary);//[1,2,3]
+</script>
+
+</body>
+</html>
