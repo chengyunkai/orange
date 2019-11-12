@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt"/>
+    <button id = "btn">
+        发送
+    </button>
+
+    <ul id = "ul"></ul>
+
+<script>
+    btn.onclick = function(){
+        let{value} = txt;
+        let fhx = value;
+        let li =document.createElement('li');
+        let btns = document.createElement('button');
+        let span = document.createElement('span');
+        btns.innerText = '反';
+
+        btns.onclick = function(){
+            span.innerText = fhx;
+        }
+   
+    
+
+    let sql =['卧槽','艹','羊驼'];
+    let str ='*@#$%';//字符串替换的文字
+
+    let re = new RegExp(sql.join('|'),'g');
+
+
+    value = value.replace(re,($0)=>{
+        let art = '';
+        for(let i=0 ;i<$0.length;i++ ){
+            art += str[Math.round(Math.random()*(str.length-1))]
+        }
+        return art;
+    });
+    console.log(value);
+
+
+    span.innerText = value;
+    li.appendChild(span);
+    li.appendChild(btns);
+    ul.insertBefore(li,ul.children[0]);
+    txt.value= '';
+}    
+</script>
+</body>
+</html>

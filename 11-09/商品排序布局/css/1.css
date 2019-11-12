@@ -73,10 +73,10 @@ nav a .down {
   border-top: 6px solid #ffffff;
 }
 nav a .activet {
-  border-bottom: 6px solid #00ffff;
+  border-bottom: 6px solid red;
 }
 nav a .activeb {
-  border-top: 6px solid #00ffff;
+  border-top: 6px solid red;
 }
 .list {
   margin-top: 20px;

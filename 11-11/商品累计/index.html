@@ -71,87 +71,120 @@
 			</div>
 		</div>
 		<script>
-	let MinAdd = document.querySelectorAll('i');
-		let num = document.querySelectorAll('.list em');
-		let sub = document.querySelectorAll('.list #sub');
-		let price = document.querySelectorAll('#price');
-		let total = document.getElementById('total');
-		let addpay = document.getElementById('addpay');
-		let max = document.getElementById('max')
-		// console.log(sub);
-		console.log(price);
+		let MinAdd = document.querySelectorAll('i');
+			let num = document.querySelectorAll('.list em');
+			let sub = document.querySelectorAll('.list #sub');
+			let price = document.querySelectorAll('#price');
+			let total = document.getElementById('total');
+			let addpay = document.getElementById('addpay');
+			let max = document.getElementById('max')
+			// console.log(sub);
+			console.log(price);
 
-		// console.log(num);
-		// console.log(MinAdd);
-		function fn(n) {
-			let m = 0;
-			MinAdd[2 * n].onclick = function () {
-				m--;
-				m < 0 ? m = 0 : null, num[n].innerHTML = m;
-				sub[n].innerHTML = m * parseFloat(price[n].innerHTML) + '元';
-				total.innerHTML = Number(num[0].innerHTML) + Number(num[1].innerHTML) + Number(num[2].innerHTML) +
-					Number(num[3].innerHTML) + Number(num[4].innerHTML);
-				addpay.innerHTML = parseFloat(sub[0].innerHTML) + parseFloat(sub[1].innerHTML) + parseFloat(sub[2]
-					.innerHTML) + parseFloat(sub[3].innerHTML) + parseFloat(sub[4].innerHTML);
-				// if (num[4].innerHTML > 0) {
-				// 	max.innerHTML = 14.5;
-				// } else if (num[0].innerHTML > 0) {
-				// 	max.innerHTML = 12.5;
-				// } else if (num[1].innerHTML > 0) {
-				// 	max.innerHTML = 10.5;
-				// } else if (num[2].innerHTML > 0) {
-				// 	max.innerHTML = 8.5;
-				// } else if (num[3].innerHTML > 0) {
-				// 	max.innerHTML = 8;
-				// } else {
-				// 	max.innerHTML = 0;
-				// }
-				maxnum();
+			// console.log(num);
+			// console.log(MinAdd);
+			function fn(n) {
+				let m = 0;
+				MinAdd[2 * n].onclick = function () {
+					m--;
+					m < 0 ? m = 0 : null, num[n].innerHTML = m;
+					sub[n].innerHTML = m * parseFloat(price[n].innerHTML) + '元';
+					total.innerHTML = Number(num[0].innerHTML) + Number(num[1].innerHTML) + Number(num[2].innerHTML) +
+						Number(num[3].innerHTML) + Number(num[4].innerHTML);
+					addpay.innerHTML = parseFloat(sub[0].innerHTML) + parseFloat(sub[1].innerHTML) + parseFloat(sub[2]
+						.innerHTML) + parseFloat(sub[3].innerHTML) + parseFloat(sub[4].innerHTML);
+					// if (num[4].innerHTML > 0) {
+					// 	max.innerHTML = 14.5;
+					// } else if (num[0].innerHTML > 0) {
+					// 	max.innerHTML = 12.5;
+					// } else if (num[1].innerHTML > 0) {
+					// 	max.innerHTML = 10.5;
+					// } else if (num[2].innerHTML > 0) {
+					// 	max.innerHTML = 8.5;
+					// } else if (num[3].innerHTML > 0) {
+					// 	max.innerHTML = 8;
+					// } else {
+					// 	max.innerHTML = 0;
+					// }
+					maxnum();
 
+				}
+				MinAdd[2 * n + 1].onclick = function () {
+					m++;
+					num[n].innerHTML = m;
+					sub[n].innerHTML = m * parseFloat(price[n].innerHTML) + '元';
+					total.innerHTML = Number(num[0].innerHTML) + Number(num[1].innerHTML) + Number(num[2].innerHTML) +
+						Number(num[3].innerHTML) + Number(num[4].innerHTML);
+					addpay.innerHTML = parseFloat(sub[0].innerHTML) + parseFloat(sub[1].innerHTML) + parseFloat(sub[2]
+						.innerHTML) + parseFloat(sub[3].innerHTML) + parseFloat(sub[4].innerHTML);
+					// if (num[4].innerHTML > 0) {
+					// 	max.innerHTML = 14.5;
+					// } else if (num[0].innerHTML > 0) {
+					// 	max.innerHTML = 12.5;
+					// } else if (num[1].innerHTML > 0) {
+					// 	max.innerHTML = 10.5;
+					// } else if (num[2].innerHTML > 0) {
+					// 	max.innerHTML = 8.5;
+					// } else if (num[3].innerHTML > 0) {
+					// 	max.innerHTML = 8;
+					// } else {
+					// 	max.innerHTML = 0;
+					// }
+					maxnum();
+				}
 			}
-			MinAdd[2 * n + 1].onclick = function () {
-				m++;
-				num[n].innerHTML = m;
-				sub[n].innerHTML = m * parseFloat(price[n].innerHTML) + '元';
-				total.innerHTML = Number(num[0].innerHTML) + Number(num[1].innerHTML) + Number(num[2].innerHTML) +
-					Number(num[3].innerHTML) + Number(num[4].innerHTML);
-				addpay.innerHTML = parseFloat(sub[0].innerHTML) + parseFloat(sub[1].innerHTML) + parseFloat(sub[2]
-					.innerHTML) + parseFloat(sub[3].innerHTML) + parseFloat(sub[4].innerHTML);
-				// if (num[4].innerHTML > 0) {
-				// 	max.innerHTML = 14.5;
-				// } else if (num[0].innerHTML > 0) {
-				// 	max.innerHTML = 12.5;
-				// } else if (num[1].innerHTML > 0) {
-				// 	max.innerHTML = 10.5;
-				// } else if (num[2].innerHTML > 0) {
-				// 	max.innerHTML = 8.5;
-				// } else if (num[3].innerHTML > 0) {
-				// 	max.innerHTML = 8;
-				// } else {
-				// 	max.innerHTML = 0;
-				// }
-				maxnum();
+			for (let i = 0; i < num.length; i++) {
+				fn(i);
 			}
-		}
-		for (let i = 0; i < num.length; i++) {
-			fn(i);
-		}
 
-		function maxnum() {
-			if (num[4].innerHTML > 0) {
-				max.innerHTML = 14.5;
-			} else if (num[0].innerHTML > 0) {
-				max.innerHTML = 12.5;
-			} else if (num[1].innerHTML > 0) {
-				max.innerHTML = 10.5;
-			} else if (num[2].innerHTML > 0) {
-				max.innerHTML = 8.5;
-			} else if (num[3].innerHTML > 0) {
-				max.innerHTML = 8;
-			} else {
-				max.innerHTML = 0;
+			function maxnum() {
+				if (num[4].innerHTML > 0) {
+					max.innerHTML = 14.5;
+				} else if (num[0].innerHTML > 0) {
+					max.innerHTML = 12.5;
+				} else if (num[1].innerHTML > 0) {
+					max.innerHTML = 10.5;
+				} else if (num[2].innerHTML > 0) {
+					max.innerHTML = 8.5;
+				} else if (num[3].innerHTML > 0) {
+					max.innerHTML = 8;
+				} else {
+					max.innerHTML = 0;
+				}
 			}
-		}
+
+
+			/*：转义字符   把正则中有特殊含义的字符 转成字符本身(不再有任何特殊的含义)
+            \d     ：代表了 0-9之间的数字
+            \D     ：代表除了 0-9 的任意字符；
+            \w     ：代表了 数字 字母  下划线；
+            \W     ：代表除了 数字 字母 下划线 之外的任意字符 
+            ^      ：代表以什么 字符 开头
+            $      ：代表以什么 字符 结尾
+            .      ：代表除了换行以外的所有字符
+            \n     ：代表换行
+            x|y    ：代表 x 或者 y
+            [ab]   ：代表a或者b
+            [^ab]  ：代表非ab
+            [a-z]  ：代表 a-z之间的任意字符
+            [^a-z] ：代表除了 小写字母
+            ()     ：分组和提升优先级的意思
+            (?:)   ：非捕获 匹配
+            (?=)
+            (?!)
+
+        量词元字符：一般都是用在了其他元字符的后边 
+            ?   ： 代表 前边的字符出现 0或1次
+            +   :  代表 前边的字符出现 1或多次
+            *   :  代表 前边的字符出现 0或多次
+            {n} ： 代表 前边的字符出现 n次
+            {n,m} ： 代表 前边的字符出现 n到m次
+            {n,} ： 代表 那边的字符出现 n到多次
+
+        修饰符 ：
+            i : 忽略大小写  ignoreCase
+            m : 多行匹配  mutiline
+            g : 全局匹配  global*/
 		</script>
 	</body>
 
