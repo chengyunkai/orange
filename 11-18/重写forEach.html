@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+       forEach(function(item,index,all){},that) -> undefined
+
+       map(funcion(item,index,all){},that)->新数组,长度跟旧数组一样
+
+
+       replace()
+            2个参数
+                第一个参数可以为正则也可以为字符串
+
+                第二个参数可以为字符串也可以为函数
+    */
+
+
+    let ary = [1,1,2,3,4];
+    Array.prototype.myForEach = function(callback,that){
+        for(let i =0 ;i<this.length;i++){
+            callback.call(that,this[i],i,this);
+        }
+    }
+
+    Array.prototype.myMap = function(callback,that){
+        let ary = [];
+        for(let i = 0;i<this.length;i++){
+            art.push(callback.call(that,this[i],i,this));
+        }
+        return ary;
+    }
+
+        let str ='珠峰培训';
+
+        String.prototype.myReplace = function(...arg){
+            let[a,b] =arg;
+            let str = this.valueOf()
+            if(typeof a !== 'string'&&a.constructor !==RegExp||typeof b !=='string' &&typeof b !== 'function'){
+                return str;
+            }
+      
+
+
+ let s = '';
+ if(typeof a === 'string'){
+    let i =str.indexOf(a);
+    if(1 === -1){
+        return str;
+    }else{
+        if(typeof b ==='string'){
+            let aa = str.substring(0,i);
+            let bb = str.substring(i,a.length);
+            return aa +b +bb;
+        }else of(typeof b === 'function'){
+            let aa = str.substring(0,i);
+            let bb = str.substring(i,a.length);
+            return aa +b(a,i,str)+bb
+        }
+    }
+ }else if(a.constructor === RegExp){
+     let ary = str.match(a);
+     if(ary === null){
+         return str ;
+     }
+     let  i = str.search(a);
+
+
+     console.log(ary);
+
+     ift(typeof b === 'string'){
+        if(ary.length>1){
+            return srt.split(ary[0]).join(b);
+        }else{
+        
+            let aa = str.substring(0,i); 
+                   
+            let bb = str.substring(i+ary[0].length);
+            return aa + b + bb;
+        }
+     }
+ }
+    
+}  
+    </script>
+</body>
+</html>
