@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+        exec小秘密
+             如果是一个变量的正则，每次不断去用正则调用exec 返回的结果总是下次匹配的结果，如果下次匹配不到返回null
+     lastIndex可以拿到匹配向之后第一个字符的位置
+     
+        */
+        //    let str = 'abababab';
+        //    let re = /a/g;
+        //    console.log(re.exec(str));
+        //     console.log(re.lastIndex);
+
+
+        //    console.log(re.exec(str));
+        //    console.log(re.exec(str));
+        //    console.log(re.exec(str));
+        //    console.log(re.exec(str));
+        /*
+         一个正则 ,整个个字符串
+         一个回调函数,替换的字符
+     
+         re:匹配的规则
+         cb：回调函数
+         str:整个字符串
+     
+         返回的是一对新的字符串
+     
+     
+         解决replace 第一个参数是正则，第二个参数是函数
+     
+        */
+        let str = 'abcabcabab';
+        //    let re = /a/g;
+        function replace(str, re, cb) {
+            let str2 = str;//最后改变的结果
+            let ary = re.exec(str);//让第一次能够进去while循环中
+
+            /*
+            a cb a cb
+            第一个数组记录替换的内容
+            第二个数组 拿到不替换的内容
+            */
+
+            while(ary){
+                console.log(ary);
+                let {index} = ary; //结构出每次匹配到的索引
+                //let searchStr = ary[0];//查找的字符
+                cb (...ary,index,str);
+                ary =  re.exec(str);
+            }
+
+
+            return str2;
+
+        }
+        replace(str, /a/g, function ($0, $1,$2,$3,$4,$5) {
+            console.log($0, $1,$2,$3,$4,$5);
+            return 1;
+        })
+    </script>
+</body>
+
+</html>ao
