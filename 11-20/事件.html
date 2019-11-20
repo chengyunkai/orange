@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<!-- <script>
+        window.onload = function(){
+            console.log(1);
+            
+        const box  = document.getElementById('box');
+        console.log(box);
+    }  
+    console.log(2);
+    
+    </script> -->
+<body>
+    <div id="box"></div>
+
+    <select name="" id="sele">
+        <option value="">北京</option>
+        <option value="">上海</option>
+        <option value="">南京</option>
+        <option value="">土耳其</option>
+        <input type="text" id="txt" maxlength="10"><span id="span">0</span>/10字
+    <input type="file" name="" id="f">
+    </select>
+    <script>
+    // console.log(3);
+
+//    sele.onchange = function(){
+//        console.log(1);
+       
+//    }
+//         txt.onchange = function(){
+//    console.log(1);
+//            }
+
+// console.log(3);
+// console.log(2);
+// const box = document.getElementById('box');
+// console.log(box);
+
+
+// sele.onchange = function(){
+//     console.log(1);
+// }
+
+// txt.onchange  = function(){
+//     console.log(1);
+    
+// }
+// f.onchange = function(){
+//     console.log(1);
+    
+// }
+
+txt.oninput =function(){
+    span.innerText = this.value.length;
+}
+
+txt.onfocus = function(){
+    console.log(1);
+    
+}  
+
+console.dir(txt)
+
+
+
+</script>
+</body>
+</html>

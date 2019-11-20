@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+        <button id="btn">点击创建</button>
+        <ul id="ul">
+            <li>1</li>
+        </ul>
+<script>
+    let lis = document.getElementsByName('li');//动态获取
+    let num = 1;
+    btn.onclick  = function(){
+        ul.innerHTML += '<li>'+(++num)+'</li>';// 覆盖的问题
+    }        
+        
+
+    ul.onclick = function(ev){
+        if(ev.target.tagName === 'Li'){
+            ev.target.style.background = 'red';
+        }
+    }
+    
+</script>
+</body>
+</html>

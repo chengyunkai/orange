@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <ul id="ul"></ul> 
+<script>
+txt.onleryup = function(ev){
+    if(ev.keyCode === 13&& ec.ctrKey){
+        ul.innerHTML += `<li>${this.value}<li>`;
+            this.value  = '';
+    }
+    console.log(ev.keyCode);
+    
+}
+</script>
+
+</body>
+</html>
